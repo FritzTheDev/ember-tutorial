@@ -26,6 +26,6 @@ module('Integration | Component | rental-listing', function(hooks) {
 
   test("should toggle wide class on click", async function(assert) {
     await render(hbs`<RentalListing @rental={{this.rental}} />`); 
-  })
+  });
 
 });
