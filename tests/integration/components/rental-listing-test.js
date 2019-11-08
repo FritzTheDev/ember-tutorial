@@ -18,11 +18,13 @@ module('Integration | Component | rental-listing', function(hooks) {
     });
   });
 
-  test("it should display rental details", async function() {
+  test("it should display rental details", async function(assert) {
     await render(hbs`<RentalListing @rental={{this.rental}} />`)
+    assert.equal(this.element.querySelector('.listing h3').textContent.trim(), 'test-title', 'Title: test-title');
+    assert.equal(this.element.querySelector('.listing .owner').textContent.trim(), 'Owner: test-owner', 'Owner: test-owner');
   });
 
-  test("should toggle wide class on click", async function() {
+  test("should toggle wide class on click", async function(assert) {
     await render(hbs`<RentalListing @rental={{this.rental}} />`); 
   })
 
