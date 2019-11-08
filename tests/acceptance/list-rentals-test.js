@@ -24,6 +24,7 @@ module('Acceptance | list rentals', function(hooks) {
   
   test('should list available rentals', async (assert) => {
     await visit('/');
+    console.log(this)
     assert.equal(this.element.querySelectorAll('.listing').length, 3, 'should display 3 listings.')
 
   });
