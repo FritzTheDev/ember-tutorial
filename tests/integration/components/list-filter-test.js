@@ -11,20 +11,22 @@ module('Integration | Component | list-filter', function(hooks) {
 
   test('should initially load all listings', async function (assert) {
     this.set('filterByCity', () => Promise.resolve({ results: ITEMS }));
+
     await render(hbs`
-    <ListFilter @filter={{action filterByCity}} as |results|>
-      <ul>
+      <ListFilter @filter={{action filterByCity}} as |results|>
+        <ul>
         {{#each results as |item|}}
           <li class="city">
             {{item.city}}
           </li>
-      </ul>
-    </ListFilter>
+        {{/each}}
+        </ul>
+      </ListFilter>
     `);
 
     await settled();
 
     assert.equal(this.element.querySelectorAll('.city').length, 3);
-    assert.dom(this.element.querySelector('.city').hasText('San Francisco'));
+    assert.dom(this.element.querySelector('.city')).hasText('San Francisco');
   });
 });
