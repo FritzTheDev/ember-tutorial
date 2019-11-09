@@ -15,11 +15,11 @@ export default Service.extend({
     this._super(...arguments);
   },
 
-  async getMapElements(location) {
+  async getMapElement(location) {
     let camelizedLocation = camelize(location);
     let element = this.cachedMaps[camelizedLocation];
     if (!element) {
-      element = this.createMapElement();
+      element = this._createMapElement();
       let geocodedLocation = await this.geocode.fetchCoordinates(location);
       this.map.createMap(element, geocodedLocation);
       this.cachedMaps[camelizedLocation] = element;
