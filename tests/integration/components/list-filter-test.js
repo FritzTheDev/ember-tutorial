@@ -48,7 +48,7 @@ module('Integration | Component | list-filter', function(hooks) {
       <ListFilter @filter={{action filterByCity}} as |results|>
         <ul>
         {{#each results as |item|}}
-          <li>
+          <li class="city">
             {{item.city}}
           </li>
         {{/each}}
