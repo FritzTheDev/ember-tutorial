@@ -12,14 +12,14 @@ module('Unit | Service | map-element', function(hooks) {
     let stubMapService = {
       createMap(element, coords) {
         assert.ok(element, 'createMap called with element');
-        assert.deepEqual(coords, [0,0], 'createMap given Coordinates');
+        assert.deepEqual(coords, [0, 0] , 'createMap given Coordinates');
         return DUMMY_ELEMENT;
       }
     }
     let stubGeocodeService = {
       fetchCoordinates(location) {
         assert.equal(location, 'San Francisco', 'fetchCoordinates called with location');
-        return Promise.resolve[0,0];
+        return Promise.resolve([0, 0]);
       }
     }
     let mapService = this.owner.factoryFor('service:map-element').create({ map: stubMapService, geocode: stubGeocodeService });
