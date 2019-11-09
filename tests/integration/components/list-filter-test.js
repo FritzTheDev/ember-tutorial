@@ -60,7 +60,7 @@ module('Integration | Component | list-filter', function(hooks) {
     await triggerKeyEvent(this.element.querySelector('.list-filter input'), "keyup", 83);
     await settled();
 
-    assert.equal(this.element.querySelectorAll('.city').length, 1, 'One result returned');
+    assert.equal(this.element.querySelectorAll('.city').length, 1, 'one result returned');
     assert.dom(this.element.querySelector('.city')).hasText('San Francisco');
   });
 });
